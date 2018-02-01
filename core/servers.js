@@ -2,7 +2,7 @@
 import {
   AsyncStorage
 } from 'react-native';
-
+import { Parse as ParseConf } from 'core/configurations';
 /**
  * Server initializations
  * @module servers
@@ -33,8 +33,8 @@ import {
 var Parse = require('parse/react-native');
 Parse.setAsyncStorage(AsyncStorage);
 
-
-Parse.serverURL = 'https://parseapi.back4app.com/';
+Parse.initialize(ParseConf.appId, ParseConf.javascriptKey);
+Parse.serverURL = ParseConf.url;
 
 export
   const ServerParse = Parse;
